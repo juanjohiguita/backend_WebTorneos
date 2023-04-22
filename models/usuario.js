@@ -11,10 +11,6 @@ const usuarioSchema = new Schema(
       type:String,
       require:true
     },
-    edad:  {
-      type:Number,
-      require:true
-    },
     email:  {
       type:String,
       require:true
