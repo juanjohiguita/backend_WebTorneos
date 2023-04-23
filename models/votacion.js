@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const votacionSchema = new Schema(
     {
         nombre_competencia:  {
-            type:String,
+            type:String
         },
         numero_de_la_fecha: {
             type:String,
@@ -27,7 +27,8 @@ const votacionSchema = new Schema(
         },
         rondas  : [{
             numero_ronda: 
-            {   type: Number
+            {   
+                type: Number
             },
             nombre_ronda: {
                 type:String
@@ -46,7 +47,7 @@ const votacionSchema = new Schema(
                     type: mongoose.Types.ObjectId
                 },
                 aka_juez: {
-                    String
+                    type: String
                 }
             }]
         }]
@@ -57,6 +58,6 @@ const votacionSchema = new Schema(
 );
 
 // Crear el modelo
-const Votacion = mongoose.model('Votacion', votacionSchema);
+const Votacion = mongoose.model('Votaciones', votacionSchema);
 
 module.exports = Votacion;

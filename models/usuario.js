@@ -21,13 +21,12 @@ const usuarioSchema = new Schema(
     roles: 
     [{
       type: String,
-      required: true,
       default:'normal'
     }],
   }
 );
 
 // Crear el modelo
-const Usuario = mongoose.model('Usuario', usuarioSchema);
+const Usuario = mongoose.model('Usuarios', usuarioSchema);
 
 module.exports = Usuario;

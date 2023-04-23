@@ -1,6 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const usuario = require("./models/usuario")
+
+const rutasUsuarios = require("./routes/usuarios")
+const rutasCompetencia = require("./routes/competencias")
+const rutasVotacion = require("./routes/votaciones")
+const rutasFormato = require("./routes/formatos")
 
 const app = express();
 
@@ -21,41 +25,21 @@ const start = async () => {
   }
 };
 
-start();
 
-
-const User = usuario;
-User.createIndexes();
 
 // For backend and express
 const cors = require("cors");
-console.log("App listen at port 5000");
-app.use(express.json());
 app.use(cors());
-app.get("/", async (req, resp) => {
-  const data = await User.find({})
-  resp.send(data);
-  // You can check backend is working or not by 
-  // entering http://loacalhost:5000
-    
-  // If you see App is working means
-  // backend working properly
-});
+console.log("App listen at port 5000");
 
-app.post("/register", async (req, resp) => {
-  try {
-      const user = new User(req.body);
-      let result = await user.save();
-      result = result.toObject();
-      if (result) {
-          delete result.password;
-          resp.send(req.body);
-          console.log(result);
-      } else {
-          console.log("User already register");
-      }
 
-  } catch (e) {
-      resp.send("Something Went Wrong");
-  }
-});
+app.use('/api',rutasUsuarios);
+app.use('/api',rutasCompetencia);
+app.use('/api',rutasFormato);
+app.use('/api',rutasVotacion);
+
+app.use(express.json());
+
+start();
+
+

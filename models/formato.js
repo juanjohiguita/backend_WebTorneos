@@ -31,6 +31,6 @@ const formatoSchema = new Schema(
 );
 
 // Crear el modelo
-const Formato = mongoose.model('Formato', usuarioSchema);
+const Formato = mongoose.model('Formatos', formatoSchema);
 
 module.exports = Formato;

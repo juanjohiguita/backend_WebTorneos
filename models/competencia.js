@@ -10,7 +10,7 @@ const competenciaSchema = new Schema(
             type:String
         },
         ciudad: {
-            type:Strin
+            type:String
         },
         fecha_inicio: {
             type:Date
@@ -48,6 +48,6 @@ const competenciaSchema = new Schema(
 );
 
 // Crear el modelo
-const Competencia = mongoose.model('Competencia', competenciaSchema);
+const Competencia = mongoose.model('Competencias', competenciaSchema);
 
 module.exports = Competencia;
