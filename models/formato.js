@@ -4,16 +4,13 @@ const Schema = mongoose.Schema;
 const formatoSchema = new Schema(
     {
         nombre:  {
-            type:String,
-            require:true
+            type:String
         },
         votacion_minima: {
-            type:Number,
-            require:true
+            type:Number
         },
         votacion_maxima: {
-            type:Number,
-            require:true
+            type:Number
         },
         rondas: [{
             numero_ronda: 
@@ -21,12 +18,10 @@ const formatoSchema = new Schema(
                 default:'1'
             },
             nombre_ronda: {
-                type:String,
-                require:true
+                type:String
             },
             numero_patrones: 
-            {   type: Number,
-                require:true
+            {   type: Number
             },
         }],
     },

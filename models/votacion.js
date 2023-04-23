@@ -5,23 +5,19 @@ const votacionSchema = new Schema(
     {
         nombre_competencia:  {
             type:String,
-            require:true
         },
         numero_de_la_fecha: {
             type:String,
             default:'1'
         },
         fecha: {
-            type:Date,
-            require:true
+            type:Date
         },
         nombre_participante_votado: {
-            type:String,
-            require:true
+            type:String
         },
         nombre_contrincante: {
-            type:String,
-            require:true
+            type:String
         },
         id_competencia: {
             type: mongoose.Types.ObjectId
@@ -31,18 +27,15 @@ const votacionSchema = new Schema(
         },
         rondas  : [{
             numero_ronda: 
-            {   type: Number,
-                require:true
+            {   type: Number
             },
             nombre_ronda: {
-                type:String,
-                require:true
+                type:String
             },
             jueces: [{
                 patrones: [{
                     numero_patron: 
-                    {   type: Number,
-                        require:true
+                    {   type: Number
                     },
                     valoracion: {
                         type:String,
@@ -53,8 +46,7 @@ const votacionSchema = new Schema(
                     type: mongoose.Types.ObjectId
                 },
                 aka_juez: {
-                    String,
-                    require:true
+                    String
                 }
             }]
         }]

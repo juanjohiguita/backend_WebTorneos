@@ -4,28 +4,24 @@ const Schema = mongoose.Schema;
 const usuarioSchema = new Schema(
   {
     nombre:  {
-      type:String,
-      require:true
+      type:String
     },
     apellido:  {
-      type:String,
-      require:true
+      type:String
     },
     email:  {
-      type:String,
-      require:true
+      type:String
     },
     password:  {
-      type:String,
-      require:true
+      type:String
     },
     aka:  {
-      type:String,
-      require:true
+      type:String
     },
     roles: 
     [{
       type: String,
+      required: true,
       default:'normal'
     }],
   }

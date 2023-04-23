@@ -4,27 +4,22 @@ const Schema = mongoose.Schema;
 const competenciaSchema = new Schema(
     {
         nombre_competencia:  {
-            type:String,
-            require:true
-        },
-        tipo_competencia: {
-            type:String,
-            require:true
-        },
-        ciudad: {
             type:String
         },
+        tipo_competencia: {
+            type:String
+        },
+        ciudad: {
+            type:Strin
+        },
         fecha_inicio: {
-            type:Date,
-            require:true
+            type:Date
         },
         fecha_finalizacion: {
-            type:Date,
-            default:fecha_inicio
+            type:Date
         },
         numero_fechas: {
-            type:Number,
-            default:'1'
+            type:Number
         },
         formato: {
             type: mongoose.Types.ObjectId
@@ -35,8 +30,7 @@ const competenciaSchema = new Schema(
                 default:'0'
             },
             aka_participante: {
-                type:String,
-                require:true
+                type:String
             }
         }],
         jueces: [{
@@ -44,8 +38,7 @@ const competenciaSchema = new Schema(
                 type: mongoose.Types.ObjectId
             },
             aka_juez: {
-                String,
-                require:true
+                type: String
             }
         }]
     },
