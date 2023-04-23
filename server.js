@@ -31,14 +31,14 @@ const start = async () => {
 const cors = require("cors");
 app.use(cors());
 console.log("App listen at port 5000");
-
+app.use(express.json());
 
 app.use('/api',rutasUsuarios);
 app.use('/api',rutasCompetencia);
 app.use('/api',rutasFormato);
 app.use('/api',rutasVotacion);
 
-app.use(express.json());
+
 
 start();
 
