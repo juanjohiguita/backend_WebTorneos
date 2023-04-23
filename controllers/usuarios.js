@@ -2,6 +2,7 @@
 const usuarioSchema = require('../models/usuario')
 
 exports.getData = async(req, resp) => {
+    console.log("Get Data Usuarios")
     const data = await usuarioSchema.find({})
     resp.send(data);
     // You can check backend is working or not by 
@@ -14,7 +15,7 @@ exports.getData = async(req, resp) => {
 
 exports.postData = async (req,resp) => {
     try {
-        console.log("Intenta al menos")
+        console.log("Post Data Usuarios")
         const user = new usuarioSchema(req.body);
         let result = await user.save();
         result = result.toObject();

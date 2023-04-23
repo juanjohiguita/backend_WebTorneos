@@ -23,6 +23,9 @@ const usuarioSchema = new Schema(
       type: String,
       default:'normal'
     }],
+  },
+  {
+    timestamps:true
   }
 );
 
