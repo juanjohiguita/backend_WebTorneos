@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const path = 'competencia'
+const path = 'competencias'
 const competenciaSchema = require('../models/competencia')
 
 router.get(`/${path}`, async (req, resp) => {
@@ -12,6 +12,15 @@ router.get(`/${path}`, async (req, resp) => {
     // If you see App is working means
     // backend working properly
     resp.render
-  });
+  }
+);
+
+router.post(`/${path}`, async (req, resp) => {
+  const data = await competenciaSchema.find({})
+  resp.send(data);
+
+  resp.render
+}
+);
   
 module.exports = router;  

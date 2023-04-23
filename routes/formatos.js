@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const path = 'formato'
+const path = 'formatos'
 const formatoSchema = require('../models/formato')
 
 router.get(`/${path}`, async (req, resp) => {

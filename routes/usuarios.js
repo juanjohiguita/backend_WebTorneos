@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const path = 'usuario'
+const path = 'usuarios'
 const usuarioSchema = require('../models/usuario')
 
 
