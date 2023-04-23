@@ -10,10 +10,12 @@ const usuarioSchema = new Schema(
       type:String
     },
     email:  {
-      type:String
+      type:String,
+      unique: true
     },
     password:  {
-      type:String
+      type:String,
+      bcrypt: true
     },
     aka:  {
       type:String
@@ -28,8 +30,7 @@ const usuarioSchema = new Schema(
     timestamps:true
   }
 );
-
+usuarioSchema.plugin(require('mongoose-bcrypt'))
 // Crear el modelo
-const Usuario = mongoose.model('Usuarios', usuarioSchema);
-
+const Usuario = mongoose.model('Usuarios',usuarioSchema);
 module.exports = Usuario;

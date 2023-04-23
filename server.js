@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+mongoose.set('autoIndex', true);
 
 const rutasUsuarios = require("./routes/usuarios")
 const rutasCompetencia = require("./routes/competencias")
@@ -26,10 +27,10 @@ const start = async () => {
 };
 
 
-
 // For backend and express
 const cors = require("cors");
 app.use(cors());
+
 console.log("App listen at port 5000");
 app.use(express.json());
 

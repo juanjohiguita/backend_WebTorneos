@@ -24,10 +24,10 @@ exports.postData = async (req,resp) => {
             resp.send(req.body);
             console.log(result);
         } else {
-            console.log("User already register");
+            console.log("El usuario ya esta registrado");
         }
 
     } catch (e) {
-        resp.send("Something Went Wrong");
+        resp.send("Correo ya esta registrado");
     }
 }
