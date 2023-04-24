@@ -1,6 +1,6 @@
 const votacionSchema = require('../models/votacion')
 
-exports.getData = async(req, resp) => {
+exports.getAllData = async(req, resp) => {
     console.log("Get Data Votaciones")
     const data = await votacionSchema.find({})
     resp.send(data);

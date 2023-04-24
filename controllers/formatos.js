@@ -1,6 +1,6 @@
 const formatoSchema = require('../models/formato')
 
-exports.getData = async(req, resp) => {
+exports.getAllData = async(req, resp) => {
     console.log("Get Data Formatos")
     const data = await formatoSchema.find({})
     resp.send(data);
@@ -30,3 +30,4 @@ exports.postData = async (req,resp) => {
         resp.send("Something Went Wrong");
     }
 }
+

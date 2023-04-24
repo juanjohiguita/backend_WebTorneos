@@ -9,7 +9,7 @@ router.post(`/${path}`,
 
 
 router.get(`/${path}`, 
-    controller.getData
+    controller.getAllData
 );
   
 module.exports = router;  
