@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+// Lo mas probable es que en este esquema este el problema o la conexion
 const competenciaSchema = new Schema(
     {
         nombre_competencia:  {
@@ -28,9 +28,8 @@ const competenciaSchema = new Schema(
             type: mongoose.Types.ObjectId
         },
         participantes: [{
-            puntuacion_general: 
-            {   type: Number,
-                default:'0'
+            puntuacion_general: {   
+                type: Number
             },
             aka_participante: {
                 type:String
@@ -49,8 +48,7 @@ const competenciaSchema = new Schema(
                 type: mongoose.Types.ObjectId
             },
             email_admin: {
-                type:String,
-                unique: true
+                type:String
             }
         }]
     },

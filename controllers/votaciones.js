@@ -15,8 +15,8 @@ exports.getAllData = async(req, resp) => {
 exports.postData = async (req,resp) => {
     try {
         console.log("Post Data votaciones")
-        const user = new votacionSchema(req.body);
-        let result = await user.save();
+        const votacion = new votacionSchema(req.body);
+        let result = await votacion.save();
         result = result.toObject();
         if (result) {
             delete result.password;

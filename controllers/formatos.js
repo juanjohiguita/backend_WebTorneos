@@ -15,8 +15,8 @@ exports.getAllData = async(req, resp) => {
 exports.postData = async (req,resp) => {
     try {
         console.log("Post Data Formatos")
-        const user = new formatoSchema(req.body);
-        let result = await user.save();
+        const formato = new formatoSchema(req.body);
+        let result = await formato.save();
         result = result.toObject();
         if (result) {
             delete result.password;

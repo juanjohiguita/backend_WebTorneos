@@ -1,4 +1,5 @@
 const competenciaSchema = require('../models/competencia')
+const formatoSchema = require('../models/formato')
 
 exports.getAllData = async(req, resp) => {
     console.log("Get Data Competencias")
@@ -12,33 +13,12 @@ exports.getAllData = async(req, resp) => {
     resp.render
 }
 
-exports.getNombreCompetenciaConJueces = async(req, resp) => {
-    console.log("Get Data Competencias")
-    const data = await competenciaSchema.find({},{"nombre_competencia":1, "jueces":1})
-    resp.send(data);
-    // You can check backend is working or not by 
-    // entering http://loacalhost:5000
-      
-    // If you see App is working means
-    // backend working properly
-    resp.render
-}
-exports.getNombreCompetenciaConParticipantes = async(req, resp) => {
-    console.log("Get Data Competencias")
-    const data = await competenciaSchema.find({},{"nombre_competencia":1, "participantes":1})
-    resp.send(data);
-    // You can check backend is working or not by 
-    // entering http://loacalhost:5000
-      
-    // If you see App is working means
-    // backend working properly
-    resp.render
-}
 exports.postData = async (req,resp) => {
-    try {   
+
+    try {
         console.log("Post Data Competencias")
-        const user = new competenciaSchema(req.body);
-        let result = await user.save();
+        const competencia = new competenciaSchema(req.body);
+        let result = await competencia.save();
         result = result.toObject();
         if (result) {
             delete result.password;

@@ -5,10 +5,11 @@ mongoose.set('autoIndex', true);
 const app = express();
 
 const rutasUsuarios = require("./routes/usuarios")
-const rutasCompetencia = require("./routes/competencias")
-const rutasVotacion = require("./routes/votaciones")
-const rutasFormato = require("./routes/formatos")
+const rutasCompetencias = require("./routes/competencias")
+const rutasVotaciones = require("./routes/votaciones")
+const rutasFormatos = require("./routes/formatos")
 
+app.use(express.json());
 
 require('dotenv').config();
 
@@ -26,10 +27,9 @@ try {
 // For backend and express
 const cors = require("cors");
 app.use(cors());
-app.use(express.json());
 
 app.use('/api',rutasUsuarios);
-app.use('/api',rutasCompetencia);
-app.use('/api',rutasFormato);
-app.use('/api',rutasVotacion);
+app.use('/api',rutasCompetencias);
+app.use('/api',rutasFormatos);
+app.use('/api',rutasVotaciones);
 
