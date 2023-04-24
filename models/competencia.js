@@ -40,6 +40,15 @@ const competenciaSchema = new Schema(
             aka_juez: {
                 type: String
             }
+        }],
+        administradores: [{
+            id_admin: {
+                type: mongoose.Types.ObjectId
+            },
+            email_admin: {
+                type:String,
+                unique: true
+            }
         }]
     },
     {

@@ -25,6 +25,14 @@ const usuarioSchema = new Schema(
       type: String,
       default:'normal'
     }],
+    competencias: [{
+      id_competencia: {
+          type: mongoose.Types.ObjectId
+      },
+      nombre_competencia:  {
+        type:String
+      },
+    }] 
   },
   {
     timestamps:true
