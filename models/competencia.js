@@ -9,6 +9,9 @@ const competenciaSchema = new Schema(
         tipo_competencia: {
             type:String
         },
+        descripcion: {
+            type:String
+        },
         ciudad: {
             type:String
         },
