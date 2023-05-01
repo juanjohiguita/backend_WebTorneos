@@ -5,7 +5,7 @@ mongoose.set('autoIndex', true);
 const app = express();
 
 const rutasUsuarios = require("./routes/usuarios")
-const rutasCompetencias = require("./routes/competencias")
+const rutasTorneos = require("./routes/torneos")
 const rutasVotaciones = require("./routes/votaciones")
 const rutasFormatos = require("./routes/formatos")
 
@@ -29,7 +29,7 @@ const cors = require("cors");
 app.use(cors());
 
 app.use('/api',rutasUsuarios);
-app.use('/api',rutasCompetencias);
+app.use('/api',rutasTorneos);
 app.use('/api',rutasFormatos);
 app.use('/api',rutasVotaciones);
 

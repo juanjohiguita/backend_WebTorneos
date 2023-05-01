@@ -1,9 +1,8 @@
-const competenciaSchema = require('../models/competencia')
-const formatoSchema = require('../models/formato')
+const torneoSchema = require('../models/torneo')
 
 exports.getAllData = async(req, res) => {
-    console.log("Get Data Competencias")
-    const data = await competenciaSchema.find({})
+    console.log("Get Data Formatos")
+    const data = await torneoSchema.find({})
     res.send(data);
     // You can check backend is working or not by 
     // entering http://loacalhost:5000
@@ -14,11 +13,10 @@ exports.getAllData = async(req, res) => {
 }
 
 exports.postData = async (req,res) => {
-
     try {
-        console.log("Post Data Competencias")
-        const competencia = new competenciaSchema(req.body);
-        let result = await competencia.save();
+        console.log("Post Data Formatos")
+        const torneo = new torneoSchema(req.body);
+        let result = await torneo.save();
         result = result.toObject();
         if (result) {
             delete result.password;

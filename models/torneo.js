@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// Lo mas probable es que en este esquema este el problema o la conexion
-const competenciaSchema = new Schema(
+
+const torneoSchema = new Schema(
     {
         nombre_competencia:  {
             type:String
@@ -58,6 +58,6 @@ const competenciaSchema = new Schema(
 );
 
 // Crear el modelo
-const Competencia = mongoose.model('Competencias', competenciaSchema);
+const Torneo = mongoose.model('Torneos', torneoSchema);
 
-module.exports = Competencia;
+module.exports = Torneo;
