@@ -1,28 +1,28 @@
 
 const usuarioSchema = require('../models/usuario')
 
-exports.getAllData = async(req, resp) => {
+exports.getAllData = async(req, res) => {
     console.log("Get Data Usuarios")
     const data = await usuarioSchema.find({},{"password":0})
-    resp.send(data);
+    res.send(data);
     // You can check backend is working or not by 
     // entering http://loacalhost:5000
       
     // If you see App is working means
     // backend working properly
-    resp.render
+    res.render
 }
 
-exports.getOnlyEmails = async(req, resp) => {
+exports.getOnlyEmails = async(req, res) => {
     console.log("Get Data Usuarios")
     const data = await usuarioSchema.find({},{email:1})
-    resp.send(data);
+    res.send(data);
     // You can check backend is working or not by 
     // entering http://loacalhost:5000
       
     // If you see App is working means
     // backend working properly
-    resp.render
+    res.render
 }
 
 exports.postData = async (req,resp) => {

@@ -1,18 +1,18 @@
 const formatoSchema = require('../models/formato')
 
-exports.getAllData = async(req, resp) => {
+exports.getAllData = async(req, res) => {
     console.log("Get Data Formatos")
     const data = await formatoSchema.find({})
-    resp.send(data);
+    res.send(data);
     // You can check backend is working or not by 
     // entering http://loacalhost:5000
       
     // If you see App is working means
     // backend working properly
-    resp.render
+    res.render
 }
 
-exports.postData = async (req,resp) => {
+exports.postData = async (req,res) => {
     try {
         console.log("Post Data Formatos")
         const formato = new formatoSchema(req.body);
@@ -20,14 +20,14 @@ exports.postData = async (req,resp) => {
         result = result.toObject();
         if (result) {
             delete result.password;
-            resp.send(req.body);
+            res.send(req.body);
             console.log(result);
         } else {
             console.log("User already register");
         }
 
     } catch (e) {
-        resp.send("Something Went Wrong");
+        res.send("Something Went Wrong");
     }
 }
 
