@@ -1,14 +1,13 @@
 const torneoSchema = require('../models/torneo')
-const service = require('../services/torneos')
 
-exports.getAllData = async(req, res) => {
-    const allData = await service.getAllData();
-    res.send({status:"OK", data: allData});
+exports.getAllData =  async(req, res) => {
+    const data =  torneoSchema.find({});
+    return(data);
 }
 
 exports.getOnlyNames = async(req, res) => {
-    const data = await service.getOnlyNames();
-    res.send({status:"OK", data: data});
+    const data = await torneoSchema.find({},{nombre:1})
+    return(data);
 }
 
 exports.postData = async (req,res) => {

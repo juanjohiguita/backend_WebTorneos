@@ -1,22 +1,20 @@
 const votacionSchema = require('../models/votacion')
-const service = require('../services/votaciones')
 
 exports.getAllData = async(req, res) => {
-    const allData = await service.getAllData();
-    res.send({status:"OK", data: allData});
+    const data =  await votacionSchema.find({});
+    return(data);
 }
 
 exports.getOnlyNameCompetition = async(req, res) => {
-    const data = await service.getOnlyNameCompetition();
-    res.send({status:"OK", data: data});
+    const data = await votacionSchema.find({},{nombre_torneo:1})
+    return(data);
 }
-
 
 exports.postData = async (req,res) => {
     try {
-        console.log("Post Data votaciones")
-        const votacion = new votacionSchema(req.body);
-        let result = await votacion.save();
+        console.log("Post Data Formatos")
+        const formato = new formatoSchema(req.body);
+        let result = await formato.save();
         result = result.toObject();
         if (result) {
             delete result.password;

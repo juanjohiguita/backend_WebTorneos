@@ -1,15 +1,13 @@
-
 const usuarioSchema = require('../models/usuario')
-const service = require('../services/usuarios')
 
-exports.getAllData = async(req, res) => {
-    const allData = await service.getAllData();
-    res.send({status:"OK", data: allData});
+exports.getAllData = () => {
+    const data =  usuarioSchema.find({});
+    return(data);
 }
 
 exports.getOnlyEmails = async(req, res) => {
-    const data = await service.getOnlyEmails();
-    res.send({status:"OK", data: data});
+    const data = await usuarioSchema.find({},{email:1})
+    return(data);
 }
 
 exports.postData = async (req,resp) => {

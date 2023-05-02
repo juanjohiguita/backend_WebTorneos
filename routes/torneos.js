@@ -11,6 +11,10 @@ router.post(`/${path}`,
 router.get(`/${path}`, 
     controller.getAllData
 );
+
+router.get(`/${path}/onlyNames`, 
+    controller.getOnlyNames
+);
   
   
 module.exports = router;  

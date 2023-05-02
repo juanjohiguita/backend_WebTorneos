@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const torneoSchema = new Schema(
     {
-        nombre_competencia:  {
+        nombre:  {
             type:String
         },
-        tipo_competencia: {
+        tipo: {
             type:String
         },
         descripcion: {

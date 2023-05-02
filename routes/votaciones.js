@@ -7,9 +7,12 @@ router.post(`/${path}`,
     controller.postData
 );
 
-
 router.get(`/${path}`, 
     controller.getAllData
+);
+
+router.get(`/${path}/onlyNameCompetition`, 
+    controller.getOnlyNameCompetition
 );
   
 module.exports = router;  

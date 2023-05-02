@@ -7,10 +7,18 @@ router.post(`/${path}`,
     controller.postData
 );
 
-
 router.get(`/${path}`, 
     controller.getAllData
 );
+
+router.get(`/${path}/onlyNames`, 
+    controller.getOnlyNames
+);
+
+router.get(`/${path}/:nombre`, 
+    controller.getByName
+);
+
   
   
 module.exports = router;  

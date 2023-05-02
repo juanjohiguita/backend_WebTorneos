@@ -13,5 +13,9 @@ router.post(`/${path}`,
 router.get(`/${path}`, 
     controller.getAllData
 );
+
+router.get(`/${path}/onlyEmails`, 
+    controller.getOnlyEmails
+);
   
 module.exports = router;  

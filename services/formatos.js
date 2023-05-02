@@ -1,14 +1,13 @@
 const formatoSchema = require('../models/formato')
-const service = require('../services/formatos')
 
 exports.getAllData = async(req, res) => {
-    const allData = await service.getAllData();
-    res.send({status:"OK", data: allData});
+    const data =  await formatoSchema.find({});
+    return(data);
 }
 
 exports.getOnlyNames = async(req, res) => {
-    const data = await service.getOnlyNames();
-    res.send({status:"OK", data: data});
+    const data = await formatoSchema.find({},{nombre:1})
+    return(data);
 }
 
 exports.getByName = async(req, res) => {
@@ -22,6 +21,8 @@ exports.getByName = async(req, res) => {
     // backend working properly
     res.render
 }
+
+
 
 
 exports.postData = async (req,res) => {
@@ -42,4 +43,3 @@ exports.postData = async (req,res) => {
         res.send("Something Went Wrong");
     }
 }
-

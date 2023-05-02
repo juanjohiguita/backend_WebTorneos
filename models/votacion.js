@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const votacionSchema = new Schema(
     {
-        nombre_competencia:  {
+        nombre_torneo:  {
             type:String
         },
         numero_de_la_fecha: {
