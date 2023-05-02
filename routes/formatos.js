@@ -15,10 +15,9 @@ router.get(`/${path}/onlyNames`,
     controller.getOnlyNames
 );
 
-router.get(`/${path}/:nombre`, 
+router.get(`/${path}/busqueda/:nombre`, 
     controller.getByName
 );
-
   
   
 module.exports = router;  

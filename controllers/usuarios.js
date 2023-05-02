@@ -12,21 +12,7 @@ exports.getOnlyEmails = async(req, res) => {
     res.send({status:"OK", data: data});
 }
 
-exports.postData = async (req,resp) => {
-    try {
-        console.log("Post Data Usuarios")
-        const user = new usuarioSchema(req.body);
-        let result = await user.save();
-        result = result.toObject();
-        if (result) {
-            delete result.password;
-            resp.send(req.body);
-            console.log(result);
-        } else {
-            console.log("El usuario ya esta registrado");
-        }
-
-    } catch (e) {
-        resp.send("Correo ya esta registrado");
-    }
+exports.postData = async (req,res) => {
+    const data = await service.postData(req,res)
+    res.send({status:"OK", data: data})
 }

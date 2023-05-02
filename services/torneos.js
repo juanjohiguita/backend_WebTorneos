@@ -17,14 +17,13 @@ exports.postData = async (req,res) => {
         let result = await torneo.save();
         result = result.toObject();
         if (result) {
-            delete result.password;
-            res.send(req.body);
+            return(req.body);
             console.log(result);
         } else {
-            console.log("User already register");
+            return("ERROR");
         }
 
     } catch (e) {
-        res.send("Something Went Wrong");
+        return("ERROR");
     }
 }

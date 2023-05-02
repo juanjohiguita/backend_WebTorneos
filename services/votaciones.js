@@ -13,18 +13,17 @@ exports.getOnlyNameCompetition = async(req, res) => {
 exports.postData = async (req,res) => {
     try {
         console.log("Post Data Formatos")
-        const formato = new formatoSchema(req.body);
+        const formato = new votacionSchema(req.body);
         let result = await formato.save();
         result = result.toObject();
         if (result) {
-            delete result.password;
-            res.send(req.body);
+            return(req.body);
             console.log(result);
         } else {
-            console.log("User already register");
+            return("ERROR");
         }
 
     } catch (e) {
-        res.send("Something Went Wrong");
+        return("ERROR");
     }
 }
