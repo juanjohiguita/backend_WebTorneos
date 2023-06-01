@@ -9,6 +9,10 @@ router.post(`/${path}`,
     controller.postData
 );
 
+router.get(`/${path}/busqueda/:email`, 
+    controller.getDataByEmail
+);
+
 
 router.get(`/${path}`, 
     controller.getAllData

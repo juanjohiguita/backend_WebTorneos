@@ -11,8 +11,7 @@ exports.getOnlyNames = async(req, res) => {
 }
 
 exports.getDataByEmail = async(req, res) => {
-    const email_req = req.email_admin;
-    const data = await torneoSchema.find({}, {email_admin: email_req})
+    const data = await torneoSchema.find({email_admin:req.params.email_admin});
     return(data);
 }
 
