@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const torneoSchema = new Schema(
     {
-        nombre:  {
+        nombre_competencia:  {
             type:String
         },
         tipo: {
@@ -43,14 +43,9 @@ const torneoSchema = new Schema(
                 type: String
             }
         }],
-        administradores: [{
-            id_admin: {
-                type: mongoose.Types.ObjectId
-            },
-            email_admin: {
-                type:String
-            }
-        }]
+        email_admin: {
+            type:String
+        }
     },
     {
         timestamps:true
