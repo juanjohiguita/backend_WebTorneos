@@ -15,6 +15,11 @@ exports.getDataByEmail = async(req, res) => {
     return(data);
 }
 
+exports.getNamesByEmail = async(req, res) => {
+    const data = await torneoSchema.find({email_admin:req.params.email_admin}, {nombre_competencia:1, _id:0});
+    return(data);
+}
+
 exports.postData = async (req,res) => {
     try {
         console.log("Post Data Torneos")

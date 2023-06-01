@@ -19,6 +19,10 @@ router.get(`/${path}/onlyNames`,
 router.get(`/${path}/busqueda/:email_admin`,
     controller.getDataByEmail
 );
+
+router.get(`/${path}/busquedaNombres/:email_admin`,
+    controller.getNamesByEmail
+);    
   
   
 module.exports = router;  

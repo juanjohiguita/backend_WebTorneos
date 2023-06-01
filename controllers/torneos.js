@@ -16,7 +16,13 @@ exports.getDataByEmail = async(req, res) => {
     res.send({status:"OK", data: data});
 }
 
+exports.getNamesByEmail = async(req, res) => {
+    const data = await service.getNamesByEmail(req, res);
+    res.send({status:"OK", data: data});
+}
+
 exports.postData = async (req,res) => {
     const data = await service.postData(req,res)
     res.send({status:"OK", data: data})
 }    
+
