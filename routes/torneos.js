@@ -16,7 +16,7 @@ router.get(`/${path}/onlyNames`,
     controller.getOnlyNames
 );
 
-router.get(`/${path}/busqueda/:email`,
+router.get(`/${path}/busqueda/:email_admin`,
     controller.getDataByEmail
 );
   
