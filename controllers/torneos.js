@@ -12,7 +12,7 @@ exports.getOnlyNames = async(req, res) => {
 }
 
 exports.getDataByEmail = async(req, res) => {
-    const data = await service.getDataByEmail();
+    const data = await service.getDataByEmail(req, res);
     res.send({status:"OK", data: data});
 }
 
