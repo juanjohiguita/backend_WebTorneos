@@ -11,9 +11,9 @@ exports.getOnlyEmails = async(req, res) => {
 }
 
 exports.getDataByEmail = async(req, res) => {
-    const data = await usuarioSchema.find({email:req.params.email}, {password:0}, {aka:1});
+    const data = await usuarioSchema.findOne({email:req.params.email}, {aka:1, _id:0});
     return(data);
-}
+}   
 
 exports.postData = async (req,res) => {
     try {
