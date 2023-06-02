@@ -5,12 +5,16 @@ const controller = require('../controllers/usuarios')
 
 
 // ruta va a ser /user GET
-router.post(`/${path}`,
-    controller.postData
+router.post(`/${path}/registro/:email`,
+    controller.postDataRegister
 );
 
 router.get(`/${path}/busqueda/:email`, 
     controller.getDataByEmail
+);
+
+router.get(`/${path}/busqueda/existe/:email`, 
+    controller.getExistUser
 );
 
 
