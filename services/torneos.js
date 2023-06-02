@@ -10,6 +10,12 @@ exports.getOnlyNames = async(req, res) => {
     return(data);
 }
 
+exports.getNamesMCSTournament = async(req, res) => {
+    
+    const data = await torneoSchema.find({email_admin:req.params.email_admin, nombre_competencia:req.params.nombre_competencia})
+    return(data);
+}
+
 exports.getDataByEmail = async(req, res) => {
     const data = await torneoSchema.find({email_admin:req.params.email_admin});
     return(data);

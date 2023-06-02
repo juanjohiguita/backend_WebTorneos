@@ -12,9 +12,10 @@ router.get(`/${path}`,
     controller.getAllData
 );
 
-router.get(`/${path}/onlyNames`, 
-    controller.getOnlyNames
+router.get(`/${path}/busqueda/:email_admin/:nombre_competencia`, 
+    controller.getNamesMCSTournament
 );
+
 
 router.get(`/${path}/busqueda/:email_admin`,
     controller.getDataByEmail
