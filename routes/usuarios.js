@@ -9,6 +9,10 @@ router.post(`/${path}/registro/:email`,
     controller.postDataRegister
 );
 
+router.post(`/${path}/registroGoogle/:email`,
+    controller.postData
+);
+
 router.get(`/${path}/busqueda/:email`, 
     controller.getDataByEmail
 );

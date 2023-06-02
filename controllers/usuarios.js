@@ -25,7 +25,17 @@ exports.getExistUser = async(req, res) => {
             res.send({status:"ERROR", data:null, message: "El usuario no existe"})
     }else{
         // Si la data no es null, significa que el usuario ya existe
-        res.send({status:"OK", data: null, message: "Usuario existente"})
+        res.send({status:"OK", data: data.aka, message: "Usuario existente"})
+    }
+}
+
+exports.postData = async (req,res) => {
+    const data = await usuarioSchema.findOne({email:req.params.email});
+    if( data == null){
+        const data = await service.postData(req,res)
+        res.send({status:"OK", data: data})
+    }else{
+        res.send({status:"ERROR", data: null, message: "Usuario existente"})
     }
 }
 
