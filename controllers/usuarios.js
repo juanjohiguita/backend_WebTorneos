@@ -45,25 +45,27 @@ exports.postDataRegister = async (req,res) => {
     if( data == null){
         // Validar tamaño contraseña
         if (req.body.password.length == 0) {
-            res.send({status:"ERROR1", data: null, message: "La contraseña es demasiado corta"})
+            res.send({status:100, data: null, message: "La contraseña es demasiado corta"})
         }else if ( !req.body.password.match(/[A-z]/) ) {
             //validar letra
-            res.send({status:"ERROR2", data: null, message: "La contraseña debe tener al menos una letra"})
+            res.send({status:101, data: null, message: "La contraseña debe tener al menos una letra"})
         }else if ( !req.body.password.match(/[A-Z]/) ) {
             //validar letra mayuscula
-            res.send({status:"ERROR3", data: null, message: "La contraseña debe tener al menos una letra mayuscula"})
+            res.send({status:102, data: null, message: "La contraseña debe tener al menos una letra mayuscula"})
         } else if ( !req.body.password.match(/\d/) ) {
             //validar numero
-            res.send({status:"ERROR4", data: null, message: "La contraseña debe tener al menos un numero"})
+            res.send({status:103, data: null, message: "La contraseña debe tener al menos un numero"})
         } else{
             // Al pasar las vadlidaciones se crea el usuario
+            console.log("Entra al else")
             const data = await service.postData(req,res)
+            console.log(data)
             res.send({status:"OK", data:data, message: "El usuario ha sido creado"})
         }
 
     }else{
         // Si la data no es null, significa que el usuario ya existe
-        res.send({status:"ERROR", data: null, message: "Usuario existente"})
+        res.send({status:99, data: null, message: "Usuario existente"})
     }
     
 }
