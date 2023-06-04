@@ -11,7 +11,7 @@ exports.getOnlyNames = async(req, res) => {
 }
 
 exports.getByName = async(req, res) => {
-    const data = await formatoSchema.find({nombre: req.params.nombre})
+    const data = await formatoSchema.find({nombre:req.params.nombre})
     res.send(data);
 }
 
