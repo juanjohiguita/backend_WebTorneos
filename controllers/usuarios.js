@@ -58,7 +58,7 @@ exports.postDataRegister = async (req,res) => {
             res.send({status:98, data: null, message: "Debe ingresar un correo"})
 
             //TOCA HACER UNO PARA QUE EL CORREO TENGA FORMATO DE CORREO 
-        }else if (req.body.password.length == 0) {
+        }else if (req.body.password.length < 5) {
             res.send({status:100, data: null, message: "La contraseña es demasiado corta"})
         }else if ( !req.body.password.match(/[A-z]/) ) {
             //validar letra
