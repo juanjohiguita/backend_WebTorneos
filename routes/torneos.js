@@ -3,7 +3,7 @@ const router = express.Router();
 const path = 'torneos'
 const controller = require('../controllers/torneos')
 
-router.post(`/${path}`,
+router.post(`/${path}/:email_admin`,
     controller.postData
 );
 

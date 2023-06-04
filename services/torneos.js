@@ -40,6 +40,6 @@ exports.postData = async (req,res) => {
         }
 
     } catch (e) {
-        return("ERROR");
+        res.send({status:"ERROR", data:data, message: "ERROR"})
     }
 }

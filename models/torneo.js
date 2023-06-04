@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const torneoSchema = new Schema(
     {
-        nombre_competencia:  {
+        nombre_torneo:  {
             type:String
         },
         tipo: {
@@ -26,6 +26,9 @@ const torneoSchema = new Schema(
         },
         formato: {
             type: mongoose.Types.ObjectId
+        },
+        numero_participantes: {
+            type:Number
         },
         participantes: [{
             puntuacion_general: {   
