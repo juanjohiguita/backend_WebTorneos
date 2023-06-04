@@ -25,8 +25,6 @@ exports.getNamesByEmail = async(req, res) => {
 
 exports.postData = async (req,res) => {
     const data = await torneoSchema.findOne({email_admin:req.params.email_admin, nombre_torneo:req.body.nombre_torneo});
-    console.log(data)
-    console.log(req.body)
     if( data == null){
         // Validar tamaño contraseña
         if (req.body.nombre_torneo.length == 0) {
@@ -37,11 +35,9 @@ exports.postData = async (req,res) => {
             //validar numero de participantes
             res.send({status:101, data: null, message: "Debe haber al menos un MC"})
         }else if(req.body.numero_fechas.length == 0){
-            console.log("Entra al else if numero fechas")
             //validar numero de fechas
             res.send({status:102, data: null, message: "Debe haber al menos una fecha"})
         }else if(req.body.numero_jueces.length == 0){
-            console.log("Entra al else if numero jueces")
             //validar numero de jueces
             res.send({status:103, data: null, message: "Debe haber al menos un juez"})
         }else{

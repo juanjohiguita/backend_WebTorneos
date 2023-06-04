@@ -5,7 +5,7 @@ const controller = require('../controllers/usuarios')
 
 
 // ruta va a ser /user GET
-router.post(`/${path}/registro/:email`,
+router.post(`/${path}/registro`,
     controller.postDataRegister
 );
 

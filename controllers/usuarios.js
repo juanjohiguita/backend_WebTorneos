@@ -40,11 +40,25 @@ exports.postData = async (req,res) => {
 }
 
 exports.postDataRegister = async (req,res) => {
-    const data = await usuarioSchema.findOne({email:req.params.email});
-    console.log(data)
+    const data = await usuarioSchema.findOne({email:req.body.email});
     if( data == null){
-        // Validar tamaño contraseña
-        if (req.body.password.length == 0) {
+        
+        if (req.body.nombre.length == 0) {
+            //valida que el nombre no este vacio
+            res.send({status:200, data: null, message: "Debe ingresar un nombre"})
+        }else if (req.body.apellido.length == 0) {
+            //valida que el appelido no este vacio
+            res.send({status:201, data: null, message: "Debe ingresar un apellido"})
+        }else if (req.body.aka.length == 0) {
+            //valida que el aka no este vacio
+            res.send({status:202, data: null, message: "Debe ingresar un aka"})
+            
+        }else if(req.body.email.length == 0){
+            //valida que el email no este vacio
+            res.send({status:98, data: null, message: "Debe ingresar un correo"})
+
+            //TOCA HACER UNO PARA QUE EL CORREO TENGA FORMATO DE CORREO 
+        }else if (req.body.password.length == 0) {
             res.send({status:100, data: null, message: "La contraseña es demasiado corta"})
         }else if ( !req.body.password.match(/[A-z]/) ) {
             //validar letra
@@ -55,11 +69,9 @@ exports.postDataRegister = async (req,res) => {
         } else if ( !req.body.password.match(/\d/) ) {
             //validar numero
             res.send({status:103, data: null, message: "La contraseña debe tener al menos un numero"})
-        } else{
+        }else{
             // Al pasar las vadlidaciones se crea el usuario
-            console.log("Entra al else")
             const data = await service.postData(req,res)
-            console.log(data)
             res.send({status:"OK", data:data, message: "El usuario ha sido creado"})
         }
 
