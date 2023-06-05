@@ -30,14 +30,14 @@ exports.postData = async (req,res) => {
         if (req.params.nombre_torneo.length == 0) {
             console.log("Entra al if")
             res.send({status:100, data: null, message: "La competencia no tiene nombre"})
-        }else if(req.params.numero_participantes.length == 0){
+        }else if(req.body.numero_participantes.length == 0){
             console.log("Entra al else if numero participantes")
             //validar numero de participantes
             res.send({status:101, data: null, message: "Debe haber al menos un MC"})
-        }else if(req.params.numero_fechas.length == 0){
+        }else if(req.body.numero_fechas.length == 0){
             //validar numero de fechas
             res.send({status:102, data: null, message: "Debe haber al menos una fecha"})
-        }else if(req.params.numero_jueces.length == 0){
+        }else if(req.body.numero_jueces.length == 0){
             //validar numero de jueces
             res.send({status:103, data: null, message: "Debe haber al menos un juez"})
         }else{
