@@ -12,7 +12,7 @@ router.get(`/${path}`,
     controller.getAllData
 );
 
-router.get(`/${path}/busqueda/:email_admin/:nombre_competencia`, 
+router.get(`/${path}/busqueda/:id_torneo`, 
     controller.getNamesMCSTournament
 );
 
