@@ -25,8 +25,12 @@ router.get(`/${path}/busquedaNombres/:email_admin`,
     controller.getNamesByEmail
 );    
 
-router.put(`/${path}/:_id/:aka_participante`,
+router.put(`/${path}/participantes/:_id/:aka_participante`,
     controller.putNuevoParticipante
+);
+
+router.put(`/${path}/jueces/:_id/:aka_juez`,
+    controller.putNuevoJuez
 );
   
   

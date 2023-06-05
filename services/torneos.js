@@ -12,7 +12,7 @@ exports.getOnlyNames = async(req, res) => {
 
 exports.getNamesMCSTournament = async(req, res) => {
     
-    const data = await torneoSchema.findOne({_id:req.params.id_torneo}, {participantes:1, _id:0})
+    const data = await torneoSchema.findOne({_id:req.params.id_torneo}, {Juezs:1, _id:0})
     return(data);
 }
 
@@ -44,6 +44,7 @@ exports.postData = async (req,res) => {
     }
 }
 
+
 exports.putNuevoParticipante = async(req, res) => {
     const data = await torneoSchema.updateOne(
         {   
@@ -53,6 +54,25 @@ exports.putNuevoParticipante = async(req, res) => {
             $push: {participantes: 
                 [{
                     aka_participante: req.params.aka_participante
+                }] 
+            },
+        },
+        {
+            upsert: true, new: true
+        }
+    )
+    return(data);
+}
+
+exports.putNuevoJuez = async(req, res) => {
+    const data = await torneoSchema.updateOne(
+        {   
+            _id: req.params._id,
+        },
+        {
+            $push: {jueces: 
+                [{
+                    aka_juez: req.params.aka_juez
                 }] 
             },
         },

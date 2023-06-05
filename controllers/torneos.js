@@ -69,4 +69,23 @@ exports.putNuevoParticipante = async (req,res) => {
     }    
 }
 
+exports.putNuevoJuez = async (req,res) => {
+    
+    const data = await torneoSchema.findOne({_id:req.params._id, jueces:{$elemMatch:{aka_juez:req.params.aka_juez}}});
+    console.log(data)
+    try{
+        if( data == null){
+            const data = await service.putNuevoJuez(req,res);
+            res.send({status:"OK", data: data, msg: "Se añadido el nuevo juez satisfactoriamente"});
+        }else{
+                res.send({status:100, data: null, msg: "Ya hay un juez con ese aka"});
+        
+        }
+    }catch(e){
+        res.send({status:101, data: null, msg: "Error"});
+    }    
+}
+
+
+
 
