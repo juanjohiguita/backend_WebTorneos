@@ -66,9 +66,12 @@ exports.postDataRegister = async (req,res) => {
         }else if ( !req.body.password.match(/[A-Z]/) ) {
             //validar letra mayuscula
             res.send({status:102, data: null, message: "La contraseña debe tener al menos una letra mayuscula"})
-        } else if ( !req.body.password.match(/\d/) ) {
+        }else if ( !req.body.password.match(/\d/) ) {
             //validar numero
             res.send({status:103, data: null, message: "La contraseña debe tener al menos un numero"})
+        }else if ( !req.body.password.match(/[^a-zA-Z\d]/) ) {
+            //validar numero
+            res.send({status:104, data: null, message: "La contraseña debe tener al menos un caracter especial"})
         }else{
             // Al pasar las vadlidaciones se crea el usuario
             const data = await service.postData(req,res)

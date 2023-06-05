@@ -22,7 +22,7 @@ exports.getDataByEmail = async(req, res) => {
 }
 
 exports.getNamesByEmail = async(req, res) => {
-    const data = await torneoSchema.find({email_admin:req.params.email_admin}, {nombre_competencia:1, _id:0});
+    const data = await torneoSchema.find({email_admin:req.params.email_admin}, {_id:1, nombre_torneo:1 });
     return(data);
 }
 
