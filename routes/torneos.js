@@ -24,6 +24,10 @@ router.get(`/${path}/busqueda/:email_admin`,
 router.get(`/${path}/busquedaNombres/:email_admin`,
     controller.getNamesByEmail
 );    
+
+router.put(`/${path}/:_id/:aka_participante`,
+    controller.putNuevoParticipante
+);
   
   
 module.exports = router;  

@@ -29,11 +29,11 @@ exports.getNamesByEmail = async(req, res) => {
 exports.postData = async (req,res) => {
     try {
         console.log("Post Data Torneos")
-        const torneo = new torneoSchema(req.body);
+        const torneo = new torneoSchema(req.params);
         let result = await torneo.save();
         result = result.toObject();
         if (result) {
-            return(req.body);
+            return(req.params);
             console.log(result);
         } else {
             return("ERROR");
@@ -42,4 +42,23 @@ exports.postData = async (req,res) => {
     } catch (e) {
         res.send({status:"ERROR", data:data, message: "ERROR"})
     }
+}
+
+exports.putNuevoParticipante = async(req, res) => {
+    const data = await torneoSchema.updateOne(
+        {   
+            _id: req.params._id,
+        },
+        {
+            $push: {participantes: 
+                [{
+                    aka_participante: req.params.aka_participante
+                }] 
+            },
+        },
+        {
+            upsert: true, new: true
+        }
+    )
+    return(data);
 }

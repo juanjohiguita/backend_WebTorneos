@@ -29,5 +29,7 @@ router.get(`/${path}`,
 router.get(`/${path}/onlyEmails`, 
     controller.getOnlyEmails
 );
+
+
   
 module.exports = router;  
