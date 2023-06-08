@@ -11,7 +11,10 @@ exports.getNamesMCSTournament = async(req, res) => {
     res.send({status:"OK", data: data});
 }
 
-
+exports.getNamesJuecesTournament = async(req, res) => {
+    const data = await service.getNamesJuecesTournament(req,res);
+    res.send({status:"OK", data: data});
+}
 
 exports.getDataByEmail = async(req, res) => {
     const data = await service.getDataByEmail(req, res);
