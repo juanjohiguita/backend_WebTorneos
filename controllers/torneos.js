@@ -45,6 +45,7 @@ exports.postData = async (req,res) => {
             res.send({status:103, data: null, message: "Debe haber al menos un juez"})
         }else{
             // Al pasar las vadlidaciones se crea el torneo
+            
             const data = await service.postData(req,res)
             res.send({status:"OK", data:data, message: "El torneo ha sido creado"})
         }

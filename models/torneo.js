@@ -30,6 +30,9 @@ const torneoSchema = new Schema(
         numero_participantes: {
             type:Number
         },
+        numero_jueces: {
+            type:Number
+        },
         participantes: [{
             puntuacion_general: {   
                 type: Number

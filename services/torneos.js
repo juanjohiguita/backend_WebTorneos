@@ -11,14 +11,14 @@ exports.getOnlyNames = async(req, res) => {
 }
 
 exports.getNamesMCSTournament = async(req, res) => {
-    
-    const data = await torneoSchema.findOne({_id:req.params.id_torneo}, {participantes:1, _id:0})
+    const data = await torneoSchema.findOne({_id:req.params.id_torneo}, {participantes:1,numero_participantes:1, _id:0})
+    console.log(data)
     return(data);
 }
 
-exports.getNamesJuecesTournament = async(req, res) => {
+exports.getNamesJuecesTournament = async(req, res) => { 
     
-    const data = await torneoSchema.findOne({_id:req.params.id_torneo}, {jueces:1, _id:0})
+    const data = await torneoSchema.findOne({_id:req.params.id_torneo}, {jueces:1, numero_jueces:1, _id:0})
     return(data);
 }
 
@@ -37,7 +37,7 @@ exports.getNamesByEmail = async(req, res) => {
 exports.postData = async (req,res) => {
     try {
         console.log("Post Data Torneos")
-        const torneo = new torneoSchema(req.params);
+        const torneo = new torneoSchema(req.body);
         let result = await torneo.save();
         result = result.toObject();
         if (result) {
