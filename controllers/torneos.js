@@ -26,6 +26,11 @@ exports.getNamesByEmail = async(req, res) => {
     res.send({status:"OK", data: data});
 }
 
+exports.getAllNames = async(req, res) => {
+    const data = await service.getAllNames(req, res);
+    res.send({status:"OK", data: data});
+}
+
 exports.postData = async (req,res) => {
     const data = await torneoSchema.findOne({email_admin:req.params.email_admin, nombre_torneo:req.params.nombre_torneo});
     if( data == null){

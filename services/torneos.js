@@ -5,6 +5,11 @@ exports.getAllData =  async(req, res) => {
     return(data);
 }
 
+exports.getAllNames = async(req, res) => {
+    const data = await torneoSchema.find({},{nombre_torneo:1})
+    return(data);
+}
+
 exports.getOnlyNames = async(req, res) => {
     const data = await torneoSchema.find({},{nombre:1})
     return(data);
